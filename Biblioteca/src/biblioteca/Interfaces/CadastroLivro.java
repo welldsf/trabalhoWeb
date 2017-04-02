@@ -15,6 +15,7 @@ public class CadastroLivro extends javax.swing.JFrame {
      * Creates new form CadastroLivro
      */
     public CadastroLivro() {
+        super("Cadastro");
         initComponents();
         setResizable(false);
     }
