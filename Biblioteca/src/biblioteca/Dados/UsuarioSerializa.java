@@ -1,5 +1,5 @@
 package biblioteca.Dados;
-import biblioteca.Usuario;
+import biblioteca.model.Usuario;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
