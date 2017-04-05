@@ -12,12 +12,14 @@ import java.io.Serializable;
  * @author well_
  */
 public class Usuario implements Serializable{
+    private int matricula;
     private String nome;
     private String usuario;
     private String senha;
 
-    public Usuario(String nome, String usuario, String senha) {
+    public Usuario(int matricula,String nome, String usuario, String senha) {
         super();
+        this.matricula=matricula;
         this.nome=nome;
         this.usuario=usuario;
         this.senha=senha;
@@ -49,6 +51,14 @@ public class Usuario implements Serializable{
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+    
+    public int getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
     }
     
     

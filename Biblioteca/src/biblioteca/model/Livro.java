@@ -5,12 +5,15 @@
  */
 package biblioteca.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Matheus
  */
-public class Livro {
+public class Livro implements Serializable{
     
+    private int codigo;
     private String nome;
     private String autor;
     private String editora;
@@ -18,18 +21,20 @@ public class Livro {
     private int volume;
     private int paginas;
     private int quantidade;
+    private double preco;
     private Genero genero;
 
-    public Livro(String nome, String editora, String autor, int quantidade) {
+    public Livro(String nome, String editora, String autor, int quantidade, int preco) {
         this.nome = nome;
         this.autor = autor;
         this.editora = editora;
         this.quantidade = quantidade;
+        this.preco = preco;
     }
 
     
     
-    public Livro(String nome, String autor, String editora, int edicao, int volume, int paginas, int quantidade, Genero genero) {
+    public Livro(String nome, String autor, String editora, int edicao, int volume, int paginas, int quantidade, Genero genero, int preco) {
         this.nome = nome;
         this.autor = autor;
         this.editora = editora;
@@ -38,6 +43,13 @@ public class Livro {
         this.paginas = paginas;
         this.quantidade = quantidade;
         this.genero = genero;
+        this.preco = preco;
+    }
+    
+    
+    @Override
+    public String toString(){
+        return "Código: "+getCodigo()+"Obra: "+getNome()+"Autor: "+getAutor();
     }
 
     public Genero getGenero() {
@@ -48,7 +60,20 @@ public class Livro {
         this.genero = genero;
     }
     
-    
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+     public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
     
     public String getNome() {
         return nome;
