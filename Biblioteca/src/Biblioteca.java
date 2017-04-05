@@ -1,4 +1,5 @@
 
+import biblioteca.Dados.ControladorInterfaces;
 import java.io.Serializable;
 
 /*
@@ -18,7 +19,8 @@ public class Biblioteca implements Serializable {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ControladorInterfaces teste = new ControladorInterfaces();
+        teste.getIFuncionario().inicia();
     }
     
 }
