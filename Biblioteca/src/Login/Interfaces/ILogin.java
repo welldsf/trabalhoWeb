@@ -134,9 +134,9 @@ public class ILogin extends javax.swing.JFrame {
     private void jBEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEntrarActionPerformed
         // TODO add your handling code here:
         if(jTFUsuario.getText().equals("USUARIO") && jPFSenha.getText().equals("321")){
-            JOptionPane.showMessageDialog(null, "Acesso OK","Acesso",1);
+            JOptionPane.showMessageDialog(null, "Acesso Autorizado","Acesso",1);
         }else{
-            JOptionPane.showMessageDialog(null, "Acesso NAO OK","Acesso",0);
+            JOptionPane.showMessageDialog(null, "Acesso Negado","Acesso",0);
         }
     }//GEN-LAST:event_jBEntrarActionPerformed
 
