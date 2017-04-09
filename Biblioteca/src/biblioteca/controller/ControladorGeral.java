@@ -37,6 +37,13 @@ public class ControladorGeral {
     }
     
     
+    public void iniciarGerente(){
+        ControladorInterfaces.getIGerente().inicia();
+    }
     
+    public void iniciaFuncionario(){
+        ControladorInterfaces.getIFuncionario().inicia();
+        
+    }
     
 }

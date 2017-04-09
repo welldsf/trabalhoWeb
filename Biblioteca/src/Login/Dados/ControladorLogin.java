@@ -7,7 +7,7 @@ package Login.Dados;
 
 import biblioteca.controller.ControladorGeral;
 import biblioteca.model.Usuario;
-import java.awt.List;
+import java.util.ArrayList;
 
 
 /**
@@ -16,18 +16,34 @@ import java.awt.List;
  */
 public class ControladorLogin {
     ControladorGeral owner;
-    Usuario usuario = new Usuario();
 
+
+    
     public ControladorLogin(ControladorGeral ControladorGeral) {
         this.owner = new ControladorGeral();
     }
     
     
     
-    public void verifica(String usuario, String senha, List ListaUsuarios){
-     /*   if(){  //Verifica na lista que sera passada se o usuario existe
+    public void verifica(String usuario, String senha, ArrayList<Usuario> listaUsuarios) {
+        for (int i = 0; i < listaUsuarios.size() - 1; i++) {
+            if (listaUsuarios.get(i).getUsuario() == usuario) {
+                if (listaUsuarios.get(i).getSenha() == senha) {
+                    if (listaUsuarios.get(i).isGerente()) {
+                        System.out.println("Abre interface de gerente");
+                    } else {
+                        System.out.println("Abre interface funcionario");
+                    }
 
-        }*/
+                } else {
+                    System.out.println("Senha incorreta");
+                }
+            } else {
+                System.out.println("Usuario nao existe");
+            }
+        }
+
+    }
 }
     
-}
+
