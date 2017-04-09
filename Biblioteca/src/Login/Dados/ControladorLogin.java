@@ -5,7 +5,7 @@
  */
 package Login.Dados;
 
-import biblioteca.Dados.ControladorGeral;
+import biblioteca.controller.ControladorGeral;
 import biblioteca.model.Usuario;
 import java.awt.List;
 
@@ -25,9 +25,9 @@ public class ControladorLogin {
     
     
     public void verifica(String usuario, String senha, List ListaUsuarios){
-        if(){  //Verifica na lista que sera passada se o usuario existe
+     /*   if(){  //Verifica na lista que sera passada se o usuario existe
 
-        }
+        }*/
 }
     
 }

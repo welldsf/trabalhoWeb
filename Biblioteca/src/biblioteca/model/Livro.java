@@ -45,13 +45,13 @@ public class Livro implements Serializable{
         this.genero = genero;
         this.preco = preco;
     }
-    
+
     
     @Override
-    public String toString(){
-        return "Código: "+getCodigo()+"Obra: "+getNome()+"Autor: "+getAutor();
+    public String toString() {
+        return "\nLivro{" + "codigo=" + codigo + ", nome=" + nome + ", autor=" + autor + ", editora=" + editora + ", edicao=" + edicao + ", volume=" + volume + ", paginas=" + paginas + ", quantidade=" + quantidade + ", preco=" + preco + ", genero=" + genero + '}';
     }
-
+   
     public Genero getGenero() {
         return genero;
     }

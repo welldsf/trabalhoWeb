@@ -5,7 +5,7 @@
  */
 package Login.Interfaces;
 
-import biblioteca.Dados.ControladorInterfaces;
+import biblioteca.controller.ControladorInterfaces;
 
 /**
  *

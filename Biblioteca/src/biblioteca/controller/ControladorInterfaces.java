@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package biblioteca.Dados;
+package biblioteca.controller;
 
-import biblioteca.Interfaces.ICadastroLivro;
-import biblioteca.Interfaces.IDevolucao;
-import biblioteca.Interfaces.IEmprestimo;
-import biblioteca.Interfaces.IFuncionario;
-import biblioteca.Interfaces.IGerente;
-import biblioteca.Interfaces.IListarLivros;
+import biblioteca.view.ICadastroLivro;
+import biblioteca.view.IDevolucao;
+import biblioteca.view.IEmprestimo;
+import biblioteca.view.IFuncionario;
+import biblioteca.view.IGerente;
+import biblioteca.view.IListarLivros;
 import Login.Interfaces.ILogin;
 
 /**
