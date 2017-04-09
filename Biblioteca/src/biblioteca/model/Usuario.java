@@ -16,6 +16,7 @@ public class Usuario implements Serializable{
     private String nome;
     private String usuario;
     private String senha;
+    private boolean gerente;
 
     public Usuario(int matricula,String nome, String usuario, String senha) {
         super();
@@ -23,8 +24,15 @@ public class Usuario implements Serializable{
         this.nome=nome;
         this.usuario=usuario;
         this.senha=senha;
+        this.gerente=false;
     }
 
+    public boolean isGerente() {
+        return gerente;
+    }
+
+    
+    
     public Usuario() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

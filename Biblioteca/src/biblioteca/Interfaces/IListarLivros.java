@@ -83,6 +83,12 @@ public class IListarLivros extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(jTable2);
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(0).setHeaderValue("Codigo");
+            jTable2.getColumnModel().getColumn(1).setHeaderValue("Obra");
+            jTable2.getColumnModel().getColumn(2).setHeaderValue("Autor");
+            jTable2.getColumnModel().getColumn(3).setHeaderValue("Quantidade");
+        }
 
         jButton1.setText("Buscar");
 

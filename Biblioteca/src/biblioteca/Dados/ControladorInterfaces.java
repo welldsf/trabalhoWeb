@@ -18,6 +18,7 @@ import Login.Interfaces.ILogin;
  * @author UFSC-420
  */
 public class ControladorInterfaces {
+    ControladorGeral owner;
     ICadastroLivro ICadastroLivro;
     IDevolucao IDevolucao;
     IEmprestimo IEmprestimo;
@@ -26,7 +27,8 @@ public class ControladorInterfaces {
     IListarLivros IListarLivros;
     ILogin ILogin;
 
-    public ControladorInterfaces() {
+    public ControladorInterfaces(ControladorGeral owner) {
+        this.owner = owner;
         this.ICadastroLivro = new ICadastroLivro(this);
         this.IDevolucao = new IDevolucao(this);
         this.IEmprestimo = new IEmprestimo(this);

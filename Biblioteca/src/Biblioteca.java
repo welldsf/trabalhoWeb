@@ -19,8 +19,7 @@ public class Biblioteca implements Serializable {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ControladorInterfaces teste = new ControladorInterfaces();
-        teste.getIFuncionario().inicia();
+     
     }
     
 }
