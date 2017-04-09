@@ -1,5 +1,5 @@
 
-import biblioteca.view.Biblioteca;
+import biblioteca.model.Biblioteca;
 import biblioteca.model.Livro;
 import java.io.File;
 import java.io.FileInputStream;
