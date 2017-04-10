@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -18,16 +19,16 @@ import java.util.logging.Logger;
  *
  * @author well_
  */
-public class UsuarioSerializa {
+public class UsuarioSerializa implements Serializable {
     
     static String arquivo = null;
     private List<Usuario> usuarios;
     static Scanner in = new Scanner(System.in);
     static boolean executando = true;
-    static UsuarioSerializa us;
+    static UsuarioSerializa us = new UsuarioSerializa();
     
     public void addUser(Usuario usuario){
-        usuarios.add(usuario);
+        this.usuarios.add(usuario);
     }
     public UsuarioSerializa(){
        this.usuarios = new ArrayList<>();
@@ -47,8 +48,13 @@ public class UsuarioSerializa {
     
           
     public static void criaUsuario(){
-        int matricula;
-        String nome, usuario, senha;
+        int matricula = 1;
+        String nome = "as";
+        String usuario = "bs";
+        String senha = "cs";
+        
+        System.out.println("\nDigite a matricula:");
+        matricula = in.nextInt();
         
         System.out.println("\nDigite o primeiro nome:");
         nome = in.next();
@@ -59,11 +65,8 @@ public class UsuarioSerializa {
         System.out.println("\nDigite a senha:");
         senha = in.next();
         
-        System.out.println("\nDigite a matricula:");
-        matricula = in.nextInt();
-
-
         Usuario user = new Usuario(matricula,nome,usuario,senha);
+        
         us.addUser(user); 
     }
 
@@ -91,13 +94,13 @@ public class UsuarioSerializa {
         }
     }
     
-    public static List carregarArquivo() throws FileNotFoundException, IOException{
+    public static List carregarArquivo(String arquivo) throws FileNotFoundException, IOException{
         FileInputStream fis = null;
         ObjectInputStream ois = null;
        
        File file = new File(arquivo+".ser");
        List listaUsuarios = null;
-        System.out.println("Digite o nome do arquivo que você quer abrir:");
+        
         if(file.exists()){
             try {
                 fis = new FileInputStream(file);
@@ -106,7 +109,6 @@ public class UsuarioSerializa {
                 listaUsuarios = (List<Usuario>) ois.readObject();
                 fis.close();
                 ois.close();
-                
                 System.out.println(listaUsuarios.toString());
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(UsuarioSerializa.class.getName()).log(Level.SEVERE, null, ex);
@@ -129,7 +131,9 @@ public class UsuarioSerializa {
             
             switch(resposta){
                 case 0: 
-                    carregarArquivo();
+                    System.out.println("Digite o nome do arquivo que você quer abrir:");
+                          
+                    carregarArquivo(in.next());
                     break;
                 case 1:
                     criarArquivo();
@@ -143,7 +147,6 @@ public class UsuarioSerializa {
             }
         }
         System.exit(0);
-        
     }
 }
     

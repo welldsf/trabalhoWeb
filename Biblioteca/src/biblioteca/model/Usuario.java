@@ -30,6 +30,12 @@ public class Usuario implements Serializable{
         return gerente;
     }
 
+    @Override
+    public String toString() {
+        return "\nUsuario{" + "matricula=" + matricula + ", nome=" + nome + ", usuario=" + usuario + ", senha=" + senha + ", gerente=" + gerente + '}';
+    }
+
+    
     
 
     public String getNome() {
