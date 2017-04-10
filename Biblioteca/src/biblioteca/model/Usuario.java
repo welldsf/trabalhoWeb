@@ -19,12 +19,11 @@ public class Usuario implements Serializable{
     private boolean gerente;
 
     public Usuario(int matricula,String nome, String usuario, String senha) {
-        super();
-        this.matricula=matricula;
-        this.nome=nome;
-        this.usuario=usuario;
-        this.senha=senha;
-        this.gerente=false;
+        this.matricula = matricula;
+        this.nome = nome;
+        this.usuario = usuario;
+        this.senha = senha;
+        this.gerente = false;
     }
 
     public boolean isGerente() {
@@ -32,10 +31,6 @@ public class Usuario implements Serializable{
     }
 
     
-    
-    public Usuario() {
-        
-    }
 
     public String getNome() {
         return nome;
