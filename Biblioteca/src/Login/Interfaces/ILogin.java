@@ -5,6 +5,7 @@
  */
 package Login.Interfaces;
 
+import Login.Dados.ControladorLogin;
 import biblioteca.controller.ControladorInterfaces;
 import javax.swing.JOptionPane;
 
@@ -13,11 +14,11 @@ import javax.swing.JOptionPane;
  * @author well_
  */
 public class ILogin extends javax.swing.JFrame {
-    private ControladorInterfaces owner;
+    private ControladorLogin owner;
     /**
      * Creates new form Login
      */
-    public ILogin(ControladorInterfaces owner) {
+    public ILogin(ControladorLogin owner) {
         super("Logar");
         initComponents();
         setResizable(false);
@@ -59,6 +60,11 @@ public class ILogin extends javax.swing.JFrame {
         });
 
         jTFUsuario.setMaximumSize(new java.awt.Dimension(200, 200));
+        jTFUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFUsuarioActionPerformed(evt);
+            }
+        });
 
         jBSair.setText("Sair");
         jBSair.addActionListener(new java.awt.event.ActionListener() {
@@ -132,17 +138,17 @@ public class ILogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEntrarActionPerformed
-        // TODO add your handling code here:
-        if(jTFUsuario.getText().equals("USUARIO") && jPFSenha.getText().equals("321")){
-            JOptionPane.showMessageDialog(null, "Acesso Autorizado","Acesso",1);
-        }else{
-            JOptionPane.showMessageDialog(null, "Acesso Negado","Acesso",0);
-        }
+        owner.verifica(jTFUsuario.getText(), jPFSenha.getPassword());
+        
     }//GEN-LAST:event_jBEntrarActionPerformed
 
     private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jBSairActionPerformed
+
+    private void jTFUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFUsuarioActionPerformed
 
    
     public void inicia() {

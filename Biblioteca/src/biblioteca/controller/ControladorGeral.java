@@ -14,7 +14,9 @@ import Login.Dados.ControladorLogin;
 public class ControladorGeral {
     ControladorInterfaces ControladorInterfaces;
     ControladorLogin ControladorLogin;
-
+    
+    
+    
     public ControladorGeral() {
         this.ControladorInterfaces = new ControladorInterfaces(this);
         this.ControladorLogin = new ControladorLogin(this);
@@ -45,5 +47,7 @@ public class ControladorGeral {
         ControladorInterfaces.getIFuncionario().inicia();
         
     }
+    
+    
     
 }

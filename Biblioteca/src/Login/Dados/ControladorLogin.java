@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class ControladorLogin {
     ControladorGeral owner;
-
+    ArrayList<Usuario> listaUsuarios;
 
     
     public ControladorLogin(ControladorGeral ControladorGeral) {
@@ -25,25 +25,37 @@ public class ControladorLogin {
     
     
     
-    public void verifica(String usuario, String senha, ArrayList<Usuario> listaUsuarios) {
-        for (int i = 0; i < listaUsuarios.size() - 1; i++) {
-            if (listaUsuarios.get(i).getUsuario() == usuario) {
-                if (listaUsuarios.get(i).getSenha() == senha) {
-                    if (listaUsuarios.get(i).isGerente()) {
-                        System.out.println("Abre interface de gerente");
-                    } else {
-                        System.out.println("Abre interface funcionario");
+    public int verifica(String usuario, String senha) {
+        for (int i = 0; i < this.listaUsuarios.size() - 1; i++) {
+            if (this.listaUsuarios.get(i).getUsuario() == usuario) {
+                if (this.listaUsuarios.get(i).getSenha() == senha) {
+                    if(this.listaUsuarios.get(i).isGerente()){
+                        return 1;
+                    }else{
+                        return 2;
                     }
-
                 } else {
                     System.out.println("Senha incorreta");
+                    return 3;
                 }
             } else {
                 System.out.println("Usuario nao existe");
+                return 4;
             }
         }
-
+        return 0;
     }
+    
+    // Se retornar 0 = erro
+    // Se retornar 1 = é Gerente
+    // Se retornar 2 = é Funcionario
+    // Se retornar 3 = Senha incorreta
+    // Se retornar 4 = Usuario inexistente
 }
+    
+    
+
+    
+
     
 

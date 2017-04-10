@@ -29,7 +29,7 @@ public class UsuarioSerializa implements Serializable {
     private static List<Usuario> usuarios;
     static Scanner in = new Scanner(System.in);
     static boolean executando = true;
-    
+    static Integer contador;
     
     public void addUser(Usuario usuario){
         this.usuarios.add(usuario);
@@ -52,14 +52,12 @@ public class UsuarioSerializa implements Serializable {
     
           
     public static void criaUsuario(){
-        int matricula;
+        int matricula = contador;
         String nome;
         String usuario;
         String senha;
         
-        System.out.println("\nDigite a matricula:");
-        matricula = in.nextInt();
-        
+       
         System.out.println("\nDigite o primeiro nome:");
         nome = in.next();
 
@@ -71,6 +69,7 @@ public class UsuarioSerializa implements Serializable {
         
         Usuario user = new Usuario(matricula,nome,usuario,senha);
         
+        contador++;
         us.addUser(user); 
     }
 

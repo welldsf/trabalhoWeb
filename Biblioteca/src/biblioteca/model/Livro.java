@@ -14,34 +14,35 @@ import java.io.Serializable;
 public class Livro implements Serializable{
     
     private int codigo;
+    private int codUsuario;
     private String nome;
     private String autor;
     private String editora;
     private int edicao;
     private int volume;
     private int paginas;
-    private int quantidade;
     private double preco;
     private Genero genero;
+    
 
-    public Livro(String nome, String editora, String autor, int quantidade, int preco) {
+    public Livro(int cont,String nome, String editora, String autor, int preco) {
+        this.codigo = cont;
         this.nome = nome;
         this.autor = autor;
         this.editora = editora;
-        this.quantidade = quantidade;
         this.preco = preco;
     }
 
     
     
-    public Livro(String nome, String autor, String editora, int edicao, int volume, int paginas, int quantidade, Genero genero, int preco) {
+    public Livro(int cont, String nome, String autor, String editora, int edicao, int volume, int paginas, Genero genero, int preco) {
+        this.codigo = cont;
         this.nome = nome;
         this.autor = autor;
         this.editora = editora;
         this.edicao = edicao;
         this.volume = volume;
         this.paginas = paginas;
-        this.quantidade = quantidade;
         this.genero = genero;
         this.preco = preco;
     }
@@ -49,7 +50,7 @@ public class Livro implements Serializable{
     
     @Override
     public String toString() {
-        return "\nLivro{" + "codigo=" + codigo + ", nome=" + nome + ", autor=" + autor + ", editora=" + editora + ", edicao=" + edicao + ", volume=" + volume + ", paginas=" + paginas + ", quantidade=" + quantidade + ", preco=" + preco + ", genero=" + genero + '}';
+        return "\nLivro{" + "codigo=" + codigo + ", nome=" + nome + ", autor=" + autor + ", editora=" + editora + ", edicao=" + edicao + ", volume=" + volume + ", paginas=" + paginas+ ", preco=" + preco + ", genero=" + genero + '}';
     }
    
     public Genero getGenero() {
@@ -123,13 +124,5 @@ public class Livro implements Serializable{
         this.paginas = paginas;
     }
 
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-    
     
 }
