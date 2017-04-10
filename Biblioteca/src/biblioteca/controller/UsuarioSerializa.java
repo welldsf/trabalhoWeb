@@ -15,17 +15,21 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author well_
  */
 public class UsuarioSerializa implements Serializable {
     
+    private static final long serialVersionUID = 1L;
+    
     static String arquivo = null;
-    private List<Usuario> usuarios;
+    static UsuarioSerializa us = new UsuarioSerializa();
+    private static List<Usuario> usuarios;
     static Scanner in = new Scanner(System.in);
     static boolean executando = true;
-    static UsuarioSerializa us = new UsuarioSerializa();
+    
     
     public void addUser(Usuario usuario){
         this.usuarios.add(usuario);
@@ -48,10 +52,10 @@ public class UsuarioSerializa implements Serializable {
     
           
     public static void criaUsuario(){
-        int matricula = 1;
-        String nome = "as";
-        String usuario = "bs";
-        String senha = "cs";
+        int matricula;
+        String nome;
+        String usuario;
+        String senha;
         
         System.out.println("\nDigite a matricula:");
         matricula = in.nextInt();
@@ -94,31 +98,40 @@ public class UsuarioSerializa implements Serializable {
         }
     }
     
-    public static List carregarArquivo(String arquivo) throws FileNotFoundException, IOException{
+    public static UsuarioSerializa carregarArquivo(String arquivo) throws FileNotFoundException, IOException{
         FileInputStream fis = null;
         ObjectInputStream ois = null;
        
        File file = new File(arquivo+".ser");
-       List listaUsuarios = null;
-        
         if(file.exists()){
             try {
                 fis = new FileInputStream(file);
                 ois = new ObjectInputStream(fis);
-            
-                listaUsuarios = (List<Usuario>) ois.readObject();
+                
+                us = (UsuarioSerializa) ois.readObject();
+                
                 fis.close();
                 ois.close();
-                System.out.println(listaUsuarios.toString());
+                
+                String total = "";
+                Iterator<Usuario> i = usuarios.iterator();
+                
+                while(i.hasNext()){
+                    Usuario u = (Usuario) i.next();
+                    total = total + u.toString();
+                }
+                System.out.println(total);
+                
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(UsuarioSerializa.class.getName()).log(Level.SEVERE, null, ex);
             }
+                    
 
         }else{
             System.out.println("Arquivo não encontrado");
         }
 
-        return listaUsuarios;
+        return us;
     }
     public static void main(String[] args) throws ClassNotFoundException, IOException {
         while(executando){
