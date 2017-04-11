@@ -138,8 +138,11 @@ public class ILogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEntrarActionPerformed
-        owner.verifica(jTFUsuario.getText(), jPFSenha.getPassword());
         
+        owner.verifica(jTFUsuario.getText(), String.valueOf(jPFSenha.getPassword()));
+        
+        
+           
     }//GEN-LAST:event_jBEntrarActionPerformed
 
     private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed

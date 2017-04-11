@@ -35,7 +35,7 @@ public class ControladorInterfaces {
         this.IFuncionario = new IFuncionario(this);
         this.IGerente = new IGerente(this);
         this.IListarLivros = new IListarLivros(this);
-        this.ILogin = new ILogin(this);
+        //this.ILogin = new ILogin();
     }
 
     public ICadastroLivro getICadastroLivro() {
