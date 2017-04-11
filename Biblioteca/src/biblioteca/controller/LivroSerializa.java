@@ -27,7 +27,7 @@ public class LivroSerializa {
     static Scanner in = new Scanner(System.in); //naovamosprecisar
     static boolean executando = true; //naovamosprecisar
     static Biblioteca lib = new Biblioteca();
-    static Integer contador;
+    static Integer contador = 0;
     
     public static void main(String[] args) throws ClassNotFoundException {
         while(executando){
@@ -40,7 +40,6 @@ public class LivroSerializa {
             
             switch(resposta){
                 case 0:
-                    System.out.println("Digite o nome do arquivo que você quer abrir");
                     carregarArquivo(in.next());
                     break;
                 case 1:
@@ -62,7 +61,7 @@ public class LivroSerializa {
        FileInputStream fis = null;
        ObjectInputStream ois = null;
        
-       File file = new File(arquivo+".ser");
+       File file = new File("Livros.txt");
        if(file.exists()){
            try {
                fis = new FileInputStream(file);
@@ -84,7 +83,7 @@ public class LivroSerializa {
     
     public static void salvarESair() {
         
-        arquivo = "livro"+contador+".txt";
+        arquivo = "Livros.txt";
         executando = false;
         FileOutputStream fos = null;
         ObjectOutputStream out = null;

@@ -1,6 +1,7 @@
 package biblioteca.controller;
 import biblioteca.model.Biblioteca;
 import biblioteca.model.Usuario;
+import biblioteca.model.Usuarios;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -25,31 +26,10 @@ public class UsuarioSerializa implements Serializable {
     private static final long serialVersionUID = 1L;
     
     static String arquivo = null;
-    static UsuarioSerializa us = new UsuarioSerializa();
-    private static List<Usuario> usuarios;
+    static Usuarios usuario = new Usuarios();
     static Scanner in = new Scanner(System.in);
     static boolean executando = true;
-    static Integer contador;
-    
-    public void addUser(Usuario usuario){
-        this.usuarios.add(usuario);
-    }
-    public UsuarioSerializa(){
-       this.usuarios = new ArrayList<>();
-    }
-    @Override
-    public String toString() {
-        
-        String total = "";
-        Iterator<Usuario> i = usuarios.iterator();
-        
-        while(i.hasNext()){
-            Usuario l = (Usuario) i.next();
-            total = total + l.toString();
-        }
-        return total;
-    }
-    
+    static Integer contador = 0;
           
     public static void criaUsuario(){
         int matricula = contador;
@@ -70,12 +50,11 @@ public class UsuarioSerializa implements Serializable {
         Usuario user = new Usuario(matricula,nome,usuario,senha);
         
         contador++;
-        us.addUser(user); 
+        UsuarioSerializa.usuario.addUser(user); 
     }
 
     public static void criarArquivo() {
-        System.out.println("Digite o nome do arquivo: ");
-        arquivo = in.next()+".ser";
+        arquivo = "newUsers.txt";
         executando = false;
         FileOutputStream fos = null;
         ObjectOutputStream out = null;
@@ -85,7 +64,7 @@ public class UsuarioSerializa implements Serializable {
             
             out = new ObjectOutputStream(fos);
             
-            out.writeObject(us);
+            out.writeObject(usuario);
             
             fos.close();
             out.close();
@@ -97,40 +76,32 @@ public class UsuarioSerializa implements Serializable {
         }
     }
     
-    public static UsuarioSerializa carregarArquivo(String arquivo) throws FileNotFoundException, IOException{
+    public static void carregarArquivo() throws ClassNotFoundException{
         FileInputStream fis = null;
         ObjectInputStream ois = null;
        
-       File file = new File(arquivo+".ser");
+       File file = new File("newUsers.txt");
         if(file.exists()){
             try {
                 fis = new FileInputStream(file);
                 ois = new ObjectInputStream(fis);
-                
-                us = (UsuarioSerializa) ois.readObject();
+                usuario = (Usuarios) ois.readObject();
                 
                 fis.close();
                 ois.close();
-                
-                String total = "";
-                Iterator<Usuario> i = usuarios.iterator();
-                
-                while(i.hasNext()){
-                    Usuario u = (Usuario) i.next();
-                    total = total + u.toString();
-                }
-                System.out.println(total);
-                
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(UsuarioSerializa.class.getName()).log(Level.SEVERE, null, ex);
-            }
+             
+            } catch (FileNotFoundException ex) {
+               Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+               Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+           }
                     
 
         }else{
             System.out.println("Arquivo não encontrado");
         }
 
-        return us;
+           
     }
     public static void main(String[] args) throws ClassNotFoundException, IOException {
         while(executando){
@@ -142,16 +113,14 @@ public class UsuarioSerializa implements Serializable {
             int resposta = in.nextInt();
             
             switch(resposta){
-                case 0: 
-                    System.out.println("Digite o nome do arquivo que você quer abrir:");
-                          
-                    carregarArquivo(in.next());
+                case 0:       
+                    carregarArquivo();
                     break;
                 case 1:
                     criarArquivo();
                     break;
                 case 2:
-                    System.out.println(us.toString());
+                    System.out.println(usuario.toString());
                     break;
                 case 3:
                     criaUsuario();
