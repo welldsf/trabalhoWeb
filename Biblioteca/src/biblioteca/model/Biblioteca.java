@@ -24,7 +24,7 @@ public class Biblioteca implements Serializable {
      */
     
     private List<Livro> colecao;
-
+    private List<Livro> livros = new ArrayList<>();
     public Biblioteca() {
         this.colecao = new ArrayList<Livro>();
     }
@@ -32,7 +32,19 @@ public class Biblioteca implements Serializable {
     public void addLivro(Livro livro){
         colecao.add(livro);
     }
-
+    public List addNoArray(List array){
+        Iterator<Livro> i = array.iterator();
+        while(i.hasNext()){
+            Livro l = (Livro) i.next();
+            livros.add(l);
+        }
+        return livros;
+    }
+    public void retornaLivro(int id){
+        
+       
+        
+    }
     @Override
     public String toString() {
         
@@ -40,6 +52,7 @@ public class Biblioteca implements Serializable {
         Iterator<Livro> i = colecao.iterator();
         
         while(i.hasNext()){
+            
             Livro l = (Livro) i.next();
             total = total + l.toString();
         }
