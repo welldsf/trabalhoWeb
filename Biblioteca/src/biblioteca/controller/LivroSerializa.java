@@ -40,7 +40,7 @@ public class LivroSerializa {
             
             switch(resposta){
                 case 0:
-                    carregarArquivo(in.next());
+                    carregarArquivo();
                     break;
                 case 1:
                     salvarESair();
@@ -57,7 +57,7 @@ public class LivroSerializa {
         
     }
     
-    public static void carregarArquivo(String arquivo) throws ClassNotFoundException {
+    public static void carregarArquivo() throws ClassNotFoundException {
        FileInputStream fis = null;
        ObjectInputStream ois = null;
        
