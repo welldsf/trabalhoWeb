@@ -14,4 +14,4 @@ spring.jpa.hibernate.ddl-auto=update <br/>
 
 
 
-Após a alteracao e necessario apenas rodar o "GestaoFestaApplication".
+<p> Após a alteracao e necessario apenas rodar o "GestaoFestaApplication". </p>
